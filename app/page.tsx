@@ -1,47 +1,45 @@
-export default function Page() {
+'use client'
+
+import { useState } from 'react'
+import { ArrowRight, BarChart3, Check, ChevronDown, Cloud, Menu, Play, ShieldCheck, Sparkles, X, Zap } from 'lucide-react'
+
+const navItems = ['Product', 'How it works', 'Resources', 'Pricing']
+
+function Logo() {
+  return <a href="#top" className="flex items-center gap-2 font-semibold tracking-tight text-slate-950"><span className="grid size-7 place-items-center rounded-lg bg-emerald-500 text-sm font-black text-white">v</span><span className="text-[17px]">verdant</span></a>
+}
+
+function DashboardPreview() {
   return (
-    <main
-      style={{
-        colorScheme: 'light dark',
-        position: 'relative',
-        display: 'flex',
-        minHeight: '100vh',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'light-dark(#fff, #000)',
-        color: 'light-dark(#000, #fff)',
-      }}
-    >
-      <svg
-        aria-hidden="true"
-        style={{ width: 80, height: 80 }}
-        width={80}
-        height={80}
-        fill="none"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="currentColor"
-        strokeWidth="0.5"
-      >
-        <path
-          d="M14.2 14.2H17V6.9375C17 4.76288 15.2371 3 13.0625 3H5.8V5.8M14.2 14.2V7.79063L7.79062 14.2H14.2ZM14.2 14.2V17H6.9375C4.76288 17 3 15.2371 3 13.0625V5.8H5.8M5.8 5.8V12.2313L12.2313 5.8H5.8Z"
-          strokeLinejoin="round"
-        />
-      </svg>
-      <p
-        style={{
-          position: 'absolute',
-          left: '50%',
-          top: 'calc(50% + 56px)',
-          transform: 'translateX(-50%)',
-          whiteSpace: 'nowrap',
-          fontSize: '14px',
-          fontWeight: 500,
-          color: 'light-dark(#71717a, #a1a1aa)',
-        }}
-      >
-        Your v0 generation will show here.
-      </p>
-    </main>
+    <div className="relative mx-auto w-full max-w-[620px]">
+      <div className="absolute -inset-5 rounded-[2rem] bg-emerald-200/40 blur-3xl" />
+      <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_30px_90px_-28px_rgba(15,23,42,.35)]">
+        <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+          <div className="flex items-center gap-2"><span className="size-2 rounded-full bg-red-300" /><span className="size-2 rounded-full bg-amber-300" /><span className="size-2 rounded-full bg-emerald-400" /></div>
+          <span className="text-[11px] font-medium text-slate-400">verdant / overview</span><span className="size-7 rounded-full bg-slate-100" />
+        </div>
+        <div className="grid grid-cols-[108px_1fr] min-h-[345px]">
+          <aside className="border-r border-slate-100 bg-slate-50/70 p-3"><div className="mb-7 flex items-center gap-2 text-xs font-semibold text-slate-700"><span className="grid size-5 place-items-center rounded bg-emerald-500 text-[10px] text-white">v</span>verdant</div><div className="space-y-3 text-[10px] text-slate-400"><div className="rounded-md bg-white px-2 py-2 font-semibold text-slate-700 shadow-sm">Overview</div><div className="px-2">Recommendations</div><div className="px-2">Cloud accounts</div><div className="px-2">Reports</div></div></aside>
+          <div className="p-5"><div className="mb-5 flex items-start justify-between"><div><p className="text-[11px] text-slate-400">Total monthly spend</p><p className="mt-1 text-2xl font-semibold tracking-tight text-slate-950">$184,290 <span className="text-xs font-medium text-emerald-600">↓ 12.8%</span></p></div><button className="rounded-md border border-slate-200 px-2.5 py-1.5 text-[10px] text-slate-500">Last 30 days⌄</button></div>
+            <div className="mb-5 grid grid-cols-3 gap-2"><div className="rounded-lg bg-emerald-50 p-3"><p className="text-[9px] text-emerald-700">Savings found</p><p className="mt-1 text-lg font-semibold text-emerald-950">$42,840</p></div><div className="rounded-lg bg-slate-50 p-3"><p className="text-[9px] text-slate-400">Opportunities</p><p className="mt-1 text-lg font-semibold text-slate-900">128</p></div><div className="rounded-lg bg-slate-50 p-3"><p className="text-[9px] text-slate-400">Coverage</p><p className="mt-1 text-lg font-semibold text-slate-900">96.4%</p></div></div>
+            <div className="rounded-lg border border-slate-100 p-3"><div className="mb-3 flex justify-between text-[10px] text-slate-400"><span>Spend over time</span><span>USD</span></div><div className="flex h-28 items-end gap-2 border-b border-slate-100 px-2">{[42,58,49,70,61,77,64,87,74,91,82,96].map((h, i) => <div key={i} className={`flex-1 rounded-t-sm ${i > 8 ? 'bg-emerald-500' : 'bg-emerald-200'}`} style={{height: `${h}%`}} />)}</div><div className="mt-2 flex justify-between text-[9px] text-slate-300"><span>Jun 01</span><span>Jun 15</span><span>Jun 30</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute -bottom-5 -left-7 flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-xl"><span className="grid size-9 place-items-center rounded-full bg-emerald-100 text-emerald-600"><Check size={18} /></span><div><p className="text-xs font-semibold text-slate-900">New savings found</p><p className="text-[11px] text-slate-400">$8,420 / month available</p></div></div>
+    </div>
   )
+}
+
+export default function Page() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  return <main id="top" className="min-h-screen overflow-hidden bg-[#fbfcfa] text-slate-950">
+    <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10"><Logo /><div className="hidden items-center gap-8 text-sm text-slate-500 md:flex">{navItems.map((item) => <a key={item} href={`#${item.toLowerCase().replaceAll(' ', '-')}`} className="transition hover:text-slate-950">{item}{item === 'Product' && <ChevronDown className="ml-1 inline size-3" />}</a>)}</div><div className="hidden items-center gap-3 md:flex"><a href="#pricing" className="px-3 py-2 text-sm text-slate-600">Sign in</a><a href="#savings" className="rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-emerald-600">See your savings <ArrowRight className="ml-1 inline size-4" /></a></div><button aria-label="Toggle menu" className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button></nav>
+    {menuOpen && <div className="mx-6 mb-4 rounded-xl border border-slate-200 bg-white p-4 md:hidden"><div className="flex flex-col gap-4 text-sm text-slate-600">{navItems.map(item => <a key={item} href={`#${item.toLowerCase().replaceAll(' ', '-')}`} onClick={() => setMenuOpen(false)}>{item}</a>)}<a href="#savings" className="rounded-lg bg-slate-950 px-4 py-3 text-center font-medium text-white">See your savings</a></div></div>}
+    <section className="mx-auto grid max-w-7xl items-center gap-16 px-6 pb-28 pt-16 lg:grid-cols-[.9fr_1.1fr] lg:px-10 lg:pb-36 lg:pt-24"><div><div className="mb-7 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-700"><Sparkles size={13} /> Cloud efficiency, made automatic</div><h1 className="max-w-xl text-5xl font-semibold leading-[1.02] tracking-[-0.055em] text-slate-950 sm:text-6xl lg:text-[70px]">Cut your cloud costs by <span className="text-emerald-500">40%.</span><br /><span className="text-slate-400">Keep your cloud.</span></h1><p className="mt-7 max-w-lg text-lg leading-8 text-slate-500">Verdant finds the waste hiding in your AWS and GCP infrastructure, then helps your team act on it—without switching providers or slowing down.</p><div className="mt-9 flex flex-col gap-3 sm:flex-row"><a href="#savings" className="rounded-lg bg-emerald-500 px-5 py-3.5 text-center text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-600">See your savings <ArrowRight className="ml-1 inline size-4" /></a><a href="#how-it-works" className="rounded-lg border border-slate-200 bg-white px-5 py-3.5 text-center text-sm font-semibold text-slate-700 transition hover:border-slate-300"><Play className="mr-1 inline size-4 fill-current" /> How it works</a></div><div className="mt-9 flex items-center gap-4 text-xs text-slate-400"><div className="flex -space-x-2">{['A','M','J','K'].map(x => <span key={x} className="grid size-7 place-items-center rounded-full border-2 border-[#fbfcfa] bg-slate-200 text-[10px] font-semibold text-slate-600">{x}</span>)}</div><span>Trusted by 200+ engineering teams</span></div></div><DashboardPreview /></section>
+    <section id="product" className="border-y border-slate-200/70 bg-white px-6 py-20 lg:px-10"><div className="mx-auto max-w-7xl"><div className="grid gap-10 md:grid-cols-3"><div><p className="text-4xl font-semibold tracking-tight">$18.4M</p><p className="mt-2 text-sm text-slate-500">saved for our customers last year</p></div><div><p className="text-4xl font-semibold tracking-tight">40%</p><p className="mt-2 text-sm text-slate-500">average reduction in cloud waste</p></div><div><p className="text-4xl font-semibold tracking-tight">14 days</p><p className="mt-2 text-sm text-slate-500">to your first measurable savings</p></div></div></div></section>
+    <section id="how-it-works" className="mx-auto max-w-7xl px-6 py-24 lg:px-10"><div className="max-w-2xl"><p className="mb-4 text-sm font-semibold uppercase tracking-[.16em] text-emerald-600">A smarter cloud bill</p><h2 className="text-4xl font-semibold tracking-[-.04em] sm:text-5xl">Clarity before cuts.</h2><p className="mt-5 text-lg leading-8 text-slate-500">Verdant gives your team the context to make confident infrastructure decisions—not another dashboard to babysit.</p></div><div className="mt-14 grid gap-5 md:grid-cols-3"><div className="rounded-2xl border border-slate-200 bg-white p-7"><Cloud className="mb-12 text-emerald-500" /><h3 className="text-lg font-semibold">Connect in minutes</h3><p className="mt-3 text-sm leading-6 text-slate-500">Read-only access means your infrastructure stays exactly where it is.</p></div><div className="rounded-2xl border border-slate-200 bg-white p-7"><BarChart3 className="mb-12 text-emerald-500" /><h3 className="text-lg font-semibold">See every opportunity</h3><p className="mt-3 text-sm leading-6 text-slate-500">Our engine spots idle resources, pricing gaps, and oversized instances.</p></div><div className="rounded-2xl border border-slate-200 bg-white p-7"><Zap className="mb-12 text-emerald-500" /><h3 className="text-lg font-semibold">Act with confidence</h3><p className="mt-3 text-sm leading-6 text-slate-500">Prioritized recommendations show impact, effort, and risk before you act.</p></div></div></section>
+    <section id="savings" className="mx-6 mb-20 rounded-3xl bg-slate-950 px-7 py-16 text-white sm:px-12 lg:mx-auto lg:max-w-7xl lg:px-20"><div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center"><div><ShieldCheck className="mb-5 text-emerald-400" /><h2 className="max-w-xl text-4xl font-semibold tracking-[-.04em] sm:text-5xl">Your next cloud bill could be smaller.</h2><p className="mt-5 max-w-lg leading-7 text-slate-400">Get a free, no-obligation savings report built from your actual AWS or GCP usage.</p></div><a href="mailto:hello@verdant.cloud" className="shrink-0 rounded-lg bg-emerald-500 px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-emerald-400">Get my free report <ArrowRight className="ml-1 inline size-4" /></a></div></section>
+    <footer className="mx-auto flex max-w-7xl flex-col gap-4 border-t border-slate-200 px-6 py-8 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between lg:px-10"><Logo /><p>© 2026 Verdant Cloud, Inc. Built for teams that ship.</p></footer>
+  </main>
 }
